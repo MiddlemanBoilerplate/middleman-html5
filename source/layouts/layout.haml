@@ -16,8 +16,9 @@
 
   %body
     /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
-    %header
-    #main{:role => 'main'}= yield
+    #pageWrapper
+      %header
+      #main{:role => 'main'}= yield
     %footer
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
