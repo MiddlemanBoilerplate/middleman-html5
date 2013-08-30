@@ -23,7 +23,7 @@
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
     :javascript
-      window.jQuery || document.write('<script src="javascripts/vendor/jquery-2.0.3.min.js"><\/script>');
+      window.jQuery || document.write('<script src=/javascripts/vendor/' + ('__proto__' in {} ? 'zepto' : 'jquery-2.0.3') + '.min.js><\/script>');
     = javascript_include_tag "site"
     /
       :javascript
