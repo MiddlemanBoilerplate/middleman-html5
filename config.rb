@@ -8,7 +8,9 @@ require 'animate-sass'
 
 # Change Compass configuration
 compass_config do |config|
+  # nested, expanded, compact, compressed
   config.output_style = :compressed
+  config.sass_options = {:line_comments => false}
 end
 
 ###
@@ -19,7 +21,7 @@ end
 #
 # With no layout
 # page "/path/to/file.html", :layout => false
-page "/404.html", :layout => false
+# page "/404.html", :layout => false
 #
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout

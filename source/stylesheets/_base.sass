@@ -1,5 +1,5 @@
 @import compass
-@import _settings
+@import _custom-variables
 @import normalize
 @import _vendor/html5bp
 @import _typography
@@ -8,12 +8,10 @@
 @import _ie
 
 
-// sticky footer
+// sticky footer, if used
 
 html,
 body,
-#pageWrapper,
-#main,
 footer
   margin: 0
   padding: 0
@@ -22,7 +20,7 @@ html,
 body
   height: 100%
 
-body:before //opera hack
+body:before
   content: ""
   height: 100%
   float: left
@@ -31,15 +29,22 @@ body:before //opera hack
 
 #pageWrapper
   min-height: 100%
+  margin:
+    top: 0
+    bottom: 0
 
   #main
+    margin:
+      top: 0
+      bottom: 0
     overflow: auto
-    padding-bottom: 180px //same height as footer
+    padding-bottom: 50px //same height as footer
 
 footer
   position: relative
-  margin-top: -180px
-  height: 180px
+  margin-top: -50px
+  height: 50px
   clear: both
 
 // end of sticky footer
+

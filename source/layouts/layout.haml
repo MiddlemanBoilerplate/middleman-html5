@@ -12,13 +12,14 @@
 
     %meta{:content => "width=device-width", :name => "viewport"}
     = javascript_include_tag "vendor/modernizr-2.6.2.min"
-    = stylesheet_link_tag "all"
+    = stylesheet_link_tag (data.page.module) ? data.page.module : 'all'
 
-  %body
-    /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+  %body{:id => (data.page.module) ? data.page.module : ''}
+    /[if lt IE 10] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
     #pageWrapper
       %header
-      #main{:role => 'main'}= yield
+      #main{:role => 'main'}
+        .row= yield
     %footer
 
     = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
