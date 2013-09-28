@@ -1,11 +1,21 @@
 @import compass
-@import _custom-variables
+@import _variables
 @import normalize
 @import _vendor/html5bp
 @import _typography
 @import foundation
-@import animate
+// @import animate
 @import _ie
+
+//fix google map
+
+.gm-style
+  img
+    max-width: none
+
+  label
+    width: auto
+    display: inline
 
 // @import 'icon/*.png'
 // +all-icon-sprites
