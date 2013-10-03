@@ -4,7 +4,7 @@
 #Livereload
 activate :livereload
 
-require 'animate-sass'
+require 'animation'
 
 # Change Compass configuration
 compass_config do |config|
