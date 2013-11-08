@@ -1,14 +1,9 @@
-#Markdown
-# set :markdown_engine, :redcarpet
-
-#Livereload
 activate :livereload
 
-require 'animation'
+# require 'animation'
+require 'modernizr'
 
-# Change Compass configuration
 compass_config do |config|
-  # nested, expanded, compact, compressed
   config.output_style = :compressed
   config.sass_options = {:line_comments => false}
 end
@@ -50,9 +45,9 @@ end
 #   end
 # end
 
-set :css_dir, 'stylesheets'
+set :css_dir, 'assets/stylesheets'
 
-set :js_dir, 'javascripts'
+set :js_dir, 'assets/javascripts'
 
 set :images_dir, 'images'
 
@@ -60,27 +55,18 @@ set :css_compressor, ::YUI::CssCompressor.new
 
 set :haml, { :attr_wrapper => "\"" }
 
-# Build-specific configuration
 configure :build do
-  # For example, change the Compass output style for deployment
-  # activate :minify_css
 
-  # Minify Javascript on build
   activate :minify_javascript
 
-  # Create favicon/touch icon set from source/favicon_base.png
   activate :favicon_maker
 
   activate :directory_indexes
 
-  # Enable cache buster
   activate :cache_buster
 
-  # Use relative URLs
   activate :relative_assets
 
-  # Compress PNGs after build
-  # First: gem install middleman-smusher
   # require "middleman-smusher"
   # activate :smusher
 

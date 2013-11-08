@@ -11,8 +11,11 @@
     %meta{:content => page_description, :name => "description"}
 
     %meta{:content => "width=device-width", :name => "viewport"}
-    = javascript_include_tag "vendor/modernizr-2.6.2.min"
-    = stylesheet_link_tag (data.page.module) ? data.page.module : 'all'
+    - if current_page.path == '404.html'
+      - $css = 'error-page'
+    - else
+      - $css = 'all'
+    = stylesheet_link_tag $css
 
   %body{:id => (data.page.module) ? data.page.module : ''}
     /[if lt IE 10] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
