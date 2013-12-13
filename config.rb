@@ -1,7 +1,7 @@
 activate :livereload
 
 # require 'animation'
-require 'modernizr'
+# require 'modernizr'
 
 compass_config do |config|
   config.output_style = :compressed
@@ -49,7 +49,7 @@ set :css_dir, 'assets/stylesheets'
 
 set :js_dir, 'assets/javascripts'
 
-set :images_dir, 'images'
+set :images_dir, 'assets/images'
 
 set :css_compressor, ::YUI::CssCompressor.new
 
