@@ -8,33 +8,30 @@
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
 
     %title= page_title
+
     %meta{:content => page_description, :name => "description"}
-
     %meta{:content => "width=device-width", :name => "viewport"}
-    - if current_page.path == '404.html'
-      - $css = 'error-page'
-    - else
-      - $css = 'all'
-    = stylesheet_link_tag $css
 
-  %body{:id => (data.page.module) ? data.page.module : ''}
+    = javascript_include_tag 'vendor/modernizr-2.7.1.min'
+
+    = stylesheet_link_tag 'typography'
+    = stylesheet_link_tag page_classes.parameterize
+
+  %body{:class => page_classes.parameterize}
     /[if lt IE 10] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
-    #pageWrapper
-      - if data.page.nav and data.page.nav === true
-        = partial 'nav'
-      #main{:role => 'main'}
-        .row= yield
+    = partial 'nav'
+    #main{:role => 'main'}
+      .row= yield
     %footer
 
-    = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
-    :javascript
-      window.jQuery || document.write('<script src=/javascripts/vendor/' + ('__proto__' in {} ? 'zepto' : 'jquery-2.0.3') + '.min.js><\/script>');
-    = javascript_include_tag "site"
-    /
+    - if development?
+      = javascript_include_tag 'vendor/jquery-2.0.3.min'
+    - else
+      = javascript_include_tag "//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"
       :javascript
-        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-        e.src='//www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-        ga('create','UA-XXXXX-X');ga('send','pageview');
+        window.jQuery || document.write('<script src=/javascripts/vendor/' + ('__proto__' in {} ? 'zepto' : 'jquery-2.0.3') + '.min.js><\/script>');
+      /
+        :javascript
+          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create','UA-XXXXX-X');ga('send','pageview');
+
+    = javascript_include_tag "site"
