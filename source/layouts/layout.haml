@@ -14,7 +14,8 @@
 
     = javascript_include_tag 'vendor/modernizr-2.7.1.min'
 
-    = stylesheet_link_tag 'typography'
+    - if !development?
+      = stylesheet_link_tag 'typography'
     = stylesheet_link_tag page_classes.parameterize
 
   %body{:class => page_classes.parameterize}

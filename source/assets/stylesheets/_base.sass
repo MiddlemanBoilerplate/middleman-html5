@@ -1,14 +1,8 @@
-@import compass
-@import _variables
-@import _vendor/normalize
-@import _vendor/foundation
-@import _topbar
-// @import animation
-// @import animation/animate
-// @import _ie
+@import normalize
+@import _settings
+@import foundation
 
 //fix google map
-
 .gm-style
   img
     max-width: none
@@ -17,8 +11,12 @@
     width: auto
     display: inline
 
+// sprite icons
 // @import 'icon/*.png'
 // +all-icon-sprites
 
 body
   background: url(../images/bg.png)
+  -webkit-font-smoothing: antialiased !important
+  text-shadow: 1px 1px 1px rgba(black, .004)
+  color: darken(gray, 10%)

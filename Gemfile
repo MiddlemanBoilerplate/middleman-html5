@@ -1,14 +1,10 @@
-source 'https://rubygems.org'
+ruby "1.9.3"
+source "https://rubygems.org"
 
-# gem "compass-sourcemaps"
 gem "middleman"
 # gem "middleman-deploy"
 gem "middleman-favicon-maker"
-gem "smusher" #compress PNG on build
+gem "middleman-smusher" #compress PNG on build
 gem "middleman-livereload"
-gem "modernizr"
 gem "yui-compressor"
 # gem "forgery"
-# gem "af"
-# gem "zurb-foundation"
-# gem "animation"
